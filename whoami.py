@@ -13,7 +13,7 @@ def on_brand_banner():
 ╚███╔███╔╝██║  ██║╚██████╔╝██║  ██║██║ ╚═╝ ██║██║
  ╚══╝╚══╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝
 
-  WHOAMI – face intelligence search by ekoms savior
+  WHOAMI – face search by ekoms savior
         ---------------------------------------------------
     """)
 
