@@ -1,10 +1,5 @@
-# whoami.py
-
-from selenium import webdriver
+import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
 from fake_useragent import UserAgent
 import time
 import os
@@ -18,8 +13,8 @@ def on_brand_banner():
 ╚███╔███╔╝██║  ██║╚██████╔╝██║  ██║██║ ╚═╝ ██║██║
  ╚══╝╚══╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝
 
-        WHOAMI – face intelligence search by ekoms
-savior        ---------------------------------------------------
+  WHOAMI – face intelligence search by ekoms savior
+        ---------------------------------------------------
     """)
 
 def search_face(image_path):
@@ -28,13 +23,10 @@ def search_face(image_path):
         return
 
     ua = UserAgent()
-    options = Options()
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument(f"user-agent={ua.random}")
-    options.add_argument("--start-maximized")
-
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-
+    
+    print("[*] Launching stealth browser...")
+    driver = uc.Chrome(headless=True, use_subprocess=True)
+    
     try:
         print("[*] Opening PimEyes...")
         driver.get("https://pimeyes.com/en")
@@ -59,7 +51,7 @@ def search_face(image_path):
         found = False
         for link in links:
             url = link.get_attribute("href")
-            if "/en/" in url:
+            if url:
                 print(" →", url)
                 found = True
 
@@ -73,5 +65,4 @@ def search_face(image_path):
 
 if __name__ == "__main__":
     on_brand_banner()
-    path = input("Enter the path to your face image (e.g. face.jpg): ")
-    search_face(path.strip())
+    path = input
